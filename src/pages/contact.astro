@@ -1,0 +1,56 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import { SITE } from '@/site';
+---
+
+<Base title="Contact" description="Get in touch with the ADaMS Lab at the University of Alberta.">
+  <PageHero eyebrow="Contact" title={SITE.contactHeading} lead={SITE.contactLead} image="/images/site/campus.jpg" />
+
+  <section class="container-x grid gap-10 py-16 sm:py-20 lg:grid-cols-12">
+    <div class="space-y-6 lg:col-span-5">
+      <div class="rounded-3xl border border-line bg-white p-7" data-reveal>
+        <h2 class="font-sans text-xs font-semibold tracking-[0.18em] text-forest-600 uppercase">Address</h2>
+        <address class="mt-4 space-y-1 text-ink/85 not-italic">
+          <p class="font-serif text-xl text-forest-900">{SITE.footerName}</p>
+          <p class="pt-2">{SITE.university}</p>
+          <p>{SITE.building}</p>
+          <p>{SITE.address}</p>
+        </address>
+        <a href={SITE.mapUrl} target="_blank" rel="noopener" class="btn-outline mt-5">Open in Maps ↗</a>
+      </div>
+      <div class="rounded-3xl bg-forest-800 p-7 text-white" data-reveal>
+        <h2 class="font-sans text-xs font-semibold tracking-[0.18em] text-amber-300 uppercase">Email</h2>
+        <a href={`mailto:${SITE.email}`} class="mt-3 block font-serif text-2xl break-all text-white hover:text-amber-200">{SITE.email}</a>
+        {SITE.contactNote && <p class="mt-4 text-sm text-forest-100/80">{SITE.contactNote}</p>}
+      </div>
+    </div>
+
+    <form class="rounded-3xl border border-line bg-white p-7 lg:col-span-7" id="contact-form" data-reveal>
+      <h2 class="text-2xl">{SITE.contactLead}</h2>
+      <p class="mt-1 text-sm text-muted">Submitting opens your email app with the message ready to send.</p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <label class="block text-sm font-medium text-forest-900">First name<input name="first" required class="field" autocomplete="given-name" /></label>
+        <label class="block text-sm font-medium text-forest-900">Last name<input name="last" required class="field" autocomplete="family-name" /></label>
+        <label class="block text-sm font-medium text-forest-900 sm:col-span-2">Email<input name="email" type="email" required class="field" autocomplete="email" /></label>
+        <label class="block text-sm font-medium text-forest-900 sm:col-span-2">Write a message<textarea name="message" rows="6" required class="field resize-y"></textarea></label>
+      </div>
+      <button class="btn-primary mt-6" type="submit">Submit</button>
+    </form>
+  </section>
+</Base>
+
+<style>
+  @reference '../styles/global.css';
+  .field { @apply mt-1.5 block w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-sm font-normal text-ink outline-none focus:border-forest-500 focus:bg-white focus:ring-2 focus:ring-forest-100; }
+</style>
+
+<script define:vars={{ email: SITE.email }}>
+  document.getElementById('contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const subject = 'Enquiry from the ADaMS Lab website';
+    const body = `${f.get('message')}\n\n— ${f.get('first')} ${f.get('last')} (${f.get('email')})`;
+    location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

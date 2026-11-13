@@ -1,0 +1,39 @@
+---
+import { getEntry } from 'astro:content';
+import Avatar from './Avatar.astro';
+import type { Project } from '@/lib/content';
+interface Props { project: Project }
+const { project } = Astro.props;
+const { title, summary, image, status, members } = project.data;
+const area = await getEntry(project.data.area);
+const people = (await Promise.all(members.slice(0, 5).map((m) => getEntry(m)))).filter((m) => !!m);
+const extra = members.length - people.length;
+---
+
+<a
+  href={`/projects/${project.id}`}
+  class="spotlight group card card-hover flex flex-col p-2"
+  data-reveal
+  data-area={project.data.area.id}
+  data-status={status}
+>
+  <div class="relative aspect-[16/10] overflow-hidden rounded-[1.25rem] bg-forest-100">
+    {image && <img src={image} alt="" loading="lazy" class="size-full object-cover transition duration-700 group-hover:scale-105" />}
+    <span class:list={[
+      'absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-wide uppercase backdrop-blur-md',
+      status === 'active' ? 'bg-forest-950/70 text-amber-300' : 'bg-white/85 text-forest-800',
+    ]}>{status === 'active' && <span class="size-1.5 rounded-full bg-amber-400"></span>}{status}</span>
+    <span class="glass absolute top-3 right-3 flex size-9 items-center justify-center rounded-full text-white opacity-0 transition duration-300 group-hover:rotate-[-45deg] group-hover:opacity-100">→</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pt-5">
+    {area && <p class="text-xs font-semibold tracking-wide text-forest-600 uppercase">{area.data.short}</p>}
+    <h3 class="mt-2 text-xl leading-snug group-hover:text-forest-700">{title}</h3>
+    <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{summary}</p>
+    <div class="mt-auto flex items-center pt-5">
+      <div class="flex -space-x-2">
+        {people.map((m) => <Avatar name={m.data.name} photo={m.data.photo} size="sm" class="rounded-full ring-2 ring-white" />)}
+      </div>
+      {extra > 0 && <span class="ml-2 text-xs font-medium text-muted">+{extra}</span>}
+    </div>
+  </div>
+</a>

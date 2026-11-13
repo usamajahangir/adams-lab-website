@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import { SITE, PH, FEATURES } from '@/site';
+
+const research = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const projects = await getCollection('projects');
+---
+
+<Base title="Research" description="Research platforms of the ADaMS Lab: metal and composite hybrid manufacturing, metal additive manufacturing, and plasma transfer arc welding.">
+  <PageHero
+    eyebrow="Research"
+    title="Research Focus"
+    lead={SITE.focus}
+    image="/images/site/focus.jpg"
+  />
+
+  <section class="container-x space-y-24 py-20 sm:py-28">
+    {research.map((r, i) => {
+      const count = projects.filter((p) => p.data.area.id === r.id).length;
+      return (
+        <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16" data-reveal>
+          <a href={`/research/${r.id}`} class:list={['group relative block overflow-hidden rounded-3xl', i % 2 && 'lg:order-2']}>
+            <img src={r.data.image} alt={r.data.title} loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105" />
+            <span class="absolute top-5 left-5 flex size-12 items-center justify-center rounded-full bg-white/95 font-serif text-lg font-semibold text-forest-700 shadow">0{i + 1}</span>
+          </a>
+          <div>
+            <p class="eyebrow">{r.data.short}</p>
+            <h2 class="mt-4 text-3xl sm:text-4xl">{r.data.cardTitle ?? r.data.title}</h2>
+            <p class="mt-5 text-lg leading-relaxed text-muted">{r.data.summary}</p>
+            <ul class="mt-6 grid gap-2 sm:grid-cols-2">
+              {(r.data.capabilities.length ? r.data.capabilities : PH.capabilities).slice(0, 4).map((c) => (
+                <li class="flex gap-2 text-sm text-ink/80"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-amber-500"></span>{c}</li>
+              ))}
+            </ul>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href={`/research/${r.id}`} class="btn-primary">Read More →</a>
+              {FEATURES.projects && count > 0 && <span class="text-sm text-muted">{count} project{count > 1 ? 's' : ''}</span>}
+            </div>
+          </div>
+        </article>
+      );
+    })}
+  </section>
+</Base>

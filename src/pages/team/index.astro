@@ -1,0 +1,62 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import MemberCard from '@/components/MemberCard.astro';
+import Avatar from '@/components/Avatar.astro';
+import { getMembers } from '@/lib/content';
+import { GROUP_LABELS, GROUP_ORDER, PH } from '@/site';
+
+const members = await getMembers();
+const current = members.filter((m) => m.data.status === 'current');
+const alumni = members.filter((m) => m.data.status === 'alumni');
+const director = current.find((m) => m.data.group === 'director');
+const team = current.filter((m) => m !== director);
+const alumniGroups = GROUP_ORDER.map((g) => ({ g, list: alumni.filter((m) => m.data.group === g) })).filter((x) => x.list.length);
+---
+
+<Base title="Team" description="Meet the researchers of the ADaMS Lab at the University of Alberta.">
+  <PageHero eyebrow="Our team" title="Team" lead={PH.lead} image="/images/site/campus.jpg" />
+
+  {director && (
+    <section class="container-x py-16 sm:py-20">
+      <a href={`/team/${director.id}`} class="group grid items-center gap-8 overflow-hidden rounded-3xl border border-line bg-white p-6 transition hover:shadow-[0_24px_60px_-30px_rgba(4,51,27,0.4)] sm:grid-cols-[220px_1fr] sm:p-8" data-reveal>
+        <div class="overflow-hidden rounded-2xl"><Avatar name={director.data.name} photo={director.data.photo} size="fill" class="aspect-square transition duration-500 group-hover:scale-105" /></div>
+        <div>
+          <p class="eyebrow">{director.data.role}</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl">{director.data.name}</h2>
+          <div class="mt-4 flex flex-wrap gap-2">{(director.data.interests.length ? director.data.interests : PH.interests).map((i) => <span class="chip">{i}</span>)}</div>
+          <span class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-forest-700">View profile <span class="transition group-hover:translate-x-1">→</span></span>
+        </div>
+      </a>
+    </section>
+  )}
+
+  <section class="container-x">
+    <div class="flex items-end justify-between" data-reveal>
+      <div>
+        <p class="eyebrow">Current members</p>
+        <h2 class="mt-4 text-3xl sm:text-4xl">Current Team</h2>
+      </div>
+    </div>
+    <div class="mt-10 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      {team.map((m) => <MemberCard member={m} />)}
+    </div>
+  </section>
+
+  <section class="container-x pt-24">
+    <p class="eyebrow" data-reveal>Alumni</p>
+    <h2 class="mt-4 text-3xl sm:text-4xl" data-reveal>Alumni</h2>
+    <div class="mt-10 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      {alumniGroups.map(({ g, list }) => (
+        <div data-reveal>
+          <h3 class="border-b border-line pb-3 font-sans text-sm font-semibold tracking-wide text-forest-700 uppercase">{GROUP_LABELS[g]}</h3>
+          <ul class="mt-3 space-y-1">
+            {list.map((m) => (
+              <li><a href={`/team/${m.id}`} class="flex items-center justify-between rounded-lg px-2 py-1.5 text-ink/85 transition hover:bg-forest-50 hover:text-forest-800">{m.data.name}<span class="text-xs text-muted">{m.data.years}</span></a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

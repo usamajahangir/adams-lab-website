@@ -1,0 +1,81 @@
+---
+import { NAV, SITE } from '@/site';
+
+interface Props { overlay?: boolean }
+const { overlay = true } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => path === href || path.startsWith(href + '/');
+---
+
+<header id="site-header" data-overlay={String(overlay)} data-scrolled="false" class="group/h fixed inset-x-0 top-0 z-50 pt-3 sm:pt-4">
+  <div class="container-x">
+    <div
+      id="header-pill"
+      class="flex h-14 items-center justify-between gap-4 rounded-full border px-3 pl-5 transition-all duration-500 sm:h-16
+        border-white/15 bg-forest-950/20 text-white backdrop-blur-xl
+        group-data-[overlay=false]/h:border-line group-data-[overlay=false]/h:bg-white/75 group-data-[overlay=false]/h:text-forest-800
+        group-data-[scrolled=true]/h:border-forest-900/10 group-data-[scrolled=true]/h:bg-white/80 group-data-[scrolled=true]/h:text-forest-800 group-data-[scrolled=true]/h:shadow-[0_10px_40px_-12px_rgba(4,51,27,0.25)]"
+    >
+      <a href="/" class="shrink-0" aria-label={`${SITE.name} — home`}>
+        <span class="logo-mask w-40 sm:w-52" aria-hidden="true"></span>
+      </a>
+
+      <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Main">
+        {NAV.filter((n) => n.href !== '/contact').map((item) => (
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class="rounded-full px-4 py-2 text-sm font-medium opacity-80 transition hover:bg-current/10 hover:opacity-100 aria-[current=page]:bg-current/10 aria-[current=page]:opacity-100"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="/contact" class="hidden items-center gap-2 rounded-full bg-amber-500 px-5 py-2.5 text-sm font-semibold text-forest-950 transition hover:bg-amber-400 sm:inline-flex">
+          Contact <span aria-hidden="true">→</span>
+        </a>
+        <button
+          id="menu-btn"
+          type="button"
+          class="inline-flex size-10 items-center justify-center rounded-full transition hover:bg-current/10 lg:hidden"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 8h16M4 16h16" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mt-2 hidden overflow-hidden rounded-3xl border border-line bg-white/95 p-2 text-forest-900 shadow-2xl backdrop-blur-xl lg:hidden">
+      <nav class="flex flex-col" aria-label="Mobile">
+        {NAV.map((item) => (
+          <a href={item.href} class:list={['rounded-2xl px-4 py-3 font-medium hover:bg-forest-50', isActive(item.href) && 'bg-forest-50 text-forest-700']}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</header>
+
+{!overlay && <div class="h-24" aria-hidden="true"></div>}
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const btn = document.getElementById('menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const update = () => {
+    header.dataset.scrolled = String(window.scrollY > 40 || !menu.classList.contains('hidden'));
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    update();
+  });
+</script>

@@ -1,0 +1,81 @@
+[
+  {
+    "id": "metal-hybrid",
+    "title": "Industrial Scale Metal Hybrid Manufacturing",
+    "cardTitle": "Industrial Scale Metal Hybrid Manufacturing",
+    "short": "Metal Hybrid Manufacturing",
+    "summary": "A 14-DOF robotic additive–subtractive manufacturing cell combining metal AM, post-processing robotics, and multi-axis machining under a unified PLC-controlled system.",
+    "description": [
+      "The facility features a 14-DOF robotic large-scale heavy-duty additive–subtractive manufacturing system designed for high-performance industrial fabrication. This includes an advanced FANUC robotic platform dedicated to large-scale metal additive manufacturing and a YASKAWA GP180 robotic arm for precision post-processing operations. Complementing these systems are vertical milling units and a 2-ton, 6-axis tilt-rotate table that provides exceptional part accessibility and complex orientation capabilities. All equipment operates within a PLC-integrated control architecture that enables seamless coordination, synchronized workflows, and real-time process monitoring across the entire manufacturing environment."
+    ],
+    "image": "/images/research/metal-hybrid.jpg",
+    "gallery": [
+      "/images/research/metal-hybrid-1.jpg",
+      "/images/research/metal-hybrid-2.jpg",
+      "/images/research/metal-hybrid-3.jpg",
+      "/images/research/metal-hybrid-4.jpg"
+    ],
+    "capabilities": [],
+    "order": 1
+  },
+  {
+    "id": "composite-hybrid",
+    "title": "Industrial Composite & Hybrid Manufacturing",
+    "cardTitle": "Industrial Composite and Hybrid Manufacturing",
+    "short": "Composite Hybrid Manufacturing",
+    "summary": "Polymer robotic hybrid manufacturing integrates additive and subtractive processes to enable high-precision fabrication with enhanced structural integrity.",
+    "description": [
+      "Large-scale hybrid robotic manufacturing capabilities integrate polymer-based additive and subtractive processes on advanced platforms such as the YASKAWA GP50. The workflow is powered by a ROS-based toolchain that enables seamless communication, real-time control, and adaptive process coordination across robotic systems. This is supported by sophisticated toolpath optimization, multi-axis motion planning, and process simulation using CAD, CAM, and finite-element analysis tools. High-precision non-contact 3D metrology further enhances the workflow by ensuring dimensional accuracy, validating complex geometries, and maintaining consistent quality throughout production."
+    ],
+    "image": "/images/research/composite-hybrid.jpg",
+    "gallery": [
+      "/images/research/composite-hybrid-1.jpg",
+      "/images/research/composite-hybrid-2.jpg",
+      "/images/research/composite-hybrid-3.jpg",
+      "/images/research/composite-hybrid-4.jpg",
+      "/images/research/composite-hybrid-5.jpg",
+      "/images/research/composite-hybrid-6.jpg"
+    ],
+    "capabilities": [],
+    "order": 2
+  },
+  {
+    "id": "metal-am",
+    "title": "Research Scale Metal Additive Manufacturing & Sensor Fusion",
+    "cardTitle": "Research Scale Metal Additive Manufacturing",
+    "short": "Metal Additive Manufacturing",
+    "summary": "Metal AM research spans sensor-integrated LPBF and stabilized WAAM, using high-fidelity data and AI analytics to improve quality and performance.",
+    "description": [
+      "A fully open-source LPBF system integrates multi-sensor fusion—including spectroscopy, thermal vision, and high-speed imaging—to capture comprehensive process data and enable real-time monitoring. These inputs are combined with AI-driven algorithms for quality assurance, defect detection, and predictive optimization throughout the build.",
+      "Separately, the WAAM platform features a bidirectional twin–enabled temperature control system designed to stabilize thermal cycles and improve deposition accuracy during large-scale fabrication. This setup supports high-performance and hybrid component manufacturing by leveraging synchronized sensing and data-driven process adjustment."
+    ],
+    "image": "/images/research/metal-am.jpg",
+    "gallery": [
+      "/images/research/metal-am-1.jpg",
+      "/images/research/metal-am-2.jpg",
+      "/images/research/metal-am-3.jpg",
+      "/images/research/metal-am-4.jpg",
+      "/images/research/metal-am-5.jpg",
+      "/images/research/metal-am-6.jpg"
+    ],
+    "capabilities": [],
+    "order": 3
+  },
+  {
+    "id": "pta",
+    "title": "Research Scale Plasma Transfer Arc Welding and Characterization",
+    "cardTitle": "Research Scale Plasma Transfer Arc Welding",
+    "short": "Plasma Transfer Arc Welding",
+    "summary": "A PTA-AM platform enables precise deposition of specialized alloys and hard-facing materials, supported by targeted process optimization and robust material characterization.",
+    "description": [
+      "A PTA-AM platform is used for processing specialized metallic alloys and hard-facing materials, enabling controlled deposition and tailored surface performance. Research focuses on optimizing process parameters to refine bead geometry, reduce dilution, and improve mechanical properties. The workflow includes precision machining, edge preparation, and detailed metallographic sample preparation to support accurate evaluation. Material characterization covers hardness, modulus, yield and ultimate tensile strength, along with advanced methods such as XRM, EDS, SEM, and wear testing to analyze microstructure and functional performance."
+    ],
+    "image": "/images/research/pta.jpg",
+    "gallery": [
+      "/images/research/pta-1.jpg",
+      "/images/research/pta-2.jpg"
+    ],
+    "capabilities": [],
+    "order": 4
+  }
+]

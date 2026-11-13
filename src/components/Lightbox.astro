@@ -1,0 +1,29 @@
+---
+// Click any element with [data-lightbox="<image src>"] to open it full screen.
+---
+
+<dialog id="lightbox" class="m-auto max-h-[92vh] max-w-[94vw] bg-transparent p-0 backdrop:bg-forest-950/90 backdrop:backdrop-blur-sm">
+  <form method="dialog" class="relative">
+    <img id="lightbox-img" alt="" class="max-h-[88vh] max-w-[92vw] rounded-xl object-contain shadow-2xl" />
+    <button class="absolute -top-3 -right-3 flex size-10 items-center justify-center rounded-full bg-white text-xl text-forest-900 shadow-lg" aria-label="Close">×</button>
+    <button type="button" data-lb="prev" class="absolute top-1/2 left-2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-forest-900 shadow" aria-label="Previous image">‹</button>
+    <button type="button" data-lb="next" class="absolute top-1/2 right-2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-forest-900 shadow" aria-label="Next image">›</button>
+  </form>
+</dialog>
+
+<script>
+  const dlg = document.getElementById('lightbox') as HTMLDialogElement;
+  const img = document.getElementById('lightbox-img') as HTMLImageElement;
+  const items = [...document.querySelectorAll<HTMLElement>('[data-lightbox]')];
+  let idx = 0;
+  const show = (i: number) => { idx = (i + items.length) % items.length; img.src = items[idx].dataset.lightbox!; };
+  items.forEach((el, i) => el.addEventListener('click', () => { show(i); dlg.showModal(); }));
+  dlg.querySelector('[data-lb=prev]')?.addEventListener('click', () => show(idx - 1));
+  dlg.querySelector('[data-lb=next]')?.addEventListener('click', () => show(idx + 1));
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!dlg.open) return;
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+</script>

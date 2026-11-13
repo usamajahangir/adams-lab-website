@@ -1,0 +1,137 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Avatar from '@/components/Avatar.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import PublicationItem from '@/components/PublicationItem.astro';
+import MemberCard from '@/components/MemberCard.astro';
+import { getMemberWork, getMemberMap, sortMembers } from '@/lib/content';
+import { PH, FEATURES } from '@/site';
+
+export async function getStaticPaths() {
+  return (await getCollection('members')).map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const work = await getMemberWork(entry.id);
+const projects = FEATURES.projects ? work.projects : [];
+const publications = work.publications;
+const memberMap = await getMemberMap();
+const bioParas = d.bio.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+
+// Frequent collaborators: members who share the most publications/projects
+const counts = new Map<string, number>();
+for (const item of [...publications, ...projects]) {
+  for (const m of item.data.members) if (m.id !== entry.id) counts.set(m.id, (counts.get(m.id) ?? 0) + 1);
+}
+const collaborators = [...counts.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 6)
+  .map(([id]) => memberMap.get(id)!)
+  .filter(Boolean)
+  .sort((a, b) => (counts.get(b.id)! - counts.get(a.id)!) || sortMembers(a, b));
+
+const linkMeta: Record<string, { label: string; icon: string }> = {
+  website: { label: 'Website', icon: 'M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 2.7 3.8 6 3.8 10S14.5 19.3 12 22m0-20C9.5 4.7 8.2 8 8.2 12s1.3 7.3 3.8 10M2.5 9h19M2.5 15h19' },
+  scholar: { label: 'Google Scholar', icon: 'M12 3L1 9l11 6 9-4.9V17h2V9L12 3zm-7 9.2V16l7 4 7-4v-3.8L12 16l-7-3.8z' },
+  linkedin: { label: 'LinkedIn', icon: 'M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.7 4.8 6.1V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z' },
+  github: { label: 'GitHub', icon: 'M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0012 2z' },
+  orcid: { label: 'ORCID', icon: 'M12 2a10 10 0 100 20 10 10 0 000-20zM8.3 17H6.9V8.3h1.4V17zm-.7-10a.9.9 0 110-1.8.9.9 0 010 1.8zM10.3 8.3h3.5c3.3 0 4.8 2.4 4.8 4.4 0 2.2-1.7 4.4-4.8 4.4h-3.5V8.3zm1.4 7.5h2c2.4 0 3.4-1.5 3.4-3.1 0-1.4-.9-3.1-3.3-3.1h-2.1v6.2z' },
+  researchgate: { label: 'ResearchGate', icon: 'M4 3h16v18H4zM9 8v8m0-8h3a2 2 0 010 4H9m3 0l3 4' },
+};
+const links = Object.entries(d.links).filter(([, v]) => v) as [string, string][];
+---
+
+<Base title={d.name} description={`${d.name} — ${d.role} at the ADaMS Lab, University of Alberta.`} image={d.photo}>
+  <!-- Profile header -->
+  <section class="grain relative isolate overflow-hidden bg-forest-950 text-white">
+    <div class="bg-grid mask-fade absolute inset-0 -z-10"></div>
+    <div class="pointer-events-none absolute -top-40 -left-32 -z-10 size-[34rem] rounded-full bg-forest-600/40 blur-[120px]"></div>
+    <div class="pointer-events-none absolute -right-20 -bottom-48 -z-10 size-[28rem] rounded-full bg-amber-500/15 blur-[120px]"></div>
+    <div class="container-x relative pt-32 pb-14 sm:pt-40 sm:pb-20">
+      <a href="/team" class="text-sm text-forest-100/70 hover:text-white">← All team members</a>
+      <div class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-end">
+        <div class="shrink-0 overflow-hidden rounded-3xl shadow-2xl ring-4 ring-white/10 animate-fade-up">
+          <Avatar name={d.name} photo={d.photo} size="lg" class="sm:size-48" />
+        </div>
+        <div class="animate-fade-up">
+          <p class="eyebrow !text-amber-300">{d.status === 'alumni' ? `Alumni · ${d.role}` : d.role}</p>
+          <h1 class="mt-3 text-4xl !text-white sm:text-5xl">{d.name}</h1>
+          {d.years && <p class="mt-2 text-forest-100/70">{d.years}</p>}
+          <div class="mt-5 flex flex-wrap gap-2">
+            {d.email && (
+              <a href={`mailto:${d.email}`} class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-forest-800 hover:bg-amber-300">
+                <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" /></svg>
+                {d.email}
+              </a>
+            )}
+            {links.length === 0 && (
+              <span class="inline-flex items-center gap-2 rounded-full border border-dashed border-white/30 px-4 py-2 text-sm text-forest-100/70">[Placeholder] Scholar · LinkedIn · ORCID links</span>
+            )}
+            {links.map(([k, href]) => (
+              <a href={href} target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/20 hover:bg-white/20">
+                <svg class="size-4" viewBox="0 0 24 24" fill={k === 'website' || k === 'researchgate' ? 'none' : 'currentColor'} stroke={k === 'website' || k === 'researchgate' ? 'currentColor' : 'none'} stroke-width="1.8"><path d={linkMeta[k]?.icon} /></svg>
+                {linkMeta[k]?.label ?? k}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick stats -->
+  <div class="border-b border-line bg-white">
+    <div class="container-x flex flex-wrap gap-x-10 gap-y-2 py-5 text-sm">
+      {FEATURES.projects && <a href="#projects" class="text-muted hover:text-forest-700"><span class="font-serif text-2xl font-semibold text-forest-700">{projects.length}</span> project{projects.length !== 1 && 's'}</a>}
+      <a href="#publications" class="text-muted hover:text-forest-700"><span class="font-serif text-2xl font-semibold text-forest-700">{publications.length}</span> publication{publications.length !== 1 && 's'}</a>
+      {collaborators.length > 0 && <span class="text-muted"><span class="font-serif text-2xl font-semibold text-forest-700">{counts.size}</span> lab collaborators</span>}
+    </div>
+  </div>
+
+  <section class="container-x grid gap-12 py-14 lg:grid-cols-12">
+    <div class="space-y-16 lg:col-span-8">
+      <div>
+        <h2 class="text-2xl sm:text-3xl">About</h2>
+        {bioParas.length ? (
+          <div class="prose-lab mt-5">{bioParas.map((p) => <p>{p}</p>)}</div>
+        ) : (
+          <p class="mt-5 leading-relaxed text-muted">{PH.bio}</p>
+        )}
+        <div class="mt-6">
+          <h3 class="font-sans text-xs font-semibold tracking-[0.18em] text-forest-600 uppercase">Research interests</h3>
+          <div class="mt-3 flex flex-wrap gap-2">{(d.interests.length ? d.interests : PH.interests).map((i) => <span class="chip">{i}</span>)}</div>
+        </div>
+      </div>
+
+      {FEATURES.projects && (
+        <div id="projects" class="scroll-mt-28">
+          <h2 class="text-2xl sm:text-3xl">Projects</h2>
+          {projects.length ? (
+            <div class="mt-6 grid gap-6 sm:grid-cols-2">{projects.map((p) => <ProjectCard project={p} />)}</div>
+          ) : (
+            <p class="mt-4 rounded-2xl border border-dashed border-line p-6 text-sm text-muted">No projects tagged yet.</p>
+          )}
+        </div>
+      )}
+
+      <div id="publications" class="scroll-mt-28">
+        <h2 class="text-2xl sm:text-3xl">Publications</h2>
+        {publications.length ? (
+          <ul class="mt-6 space-y-4">{publications.map((p) => <PublicationItem pub={p} memberMap={memberMap} highlight={entry.id} />)}</ul>
+        ) : (
+          <p class="mt-4 rounded-2xl border border-dashed border-line p-6 text-sm text-muted">No publications tagged yet.</p>
+        )}
+      </div>
+    </div>
+
+    {collaborators.length > 0 && (
+      <aside class="lg:col-span-4">
+        <div class="sticky top-28 rounded-3xl border border-line bg-white p-6">
+          <h2 class="font-sans text-xs font-semibold tracking-[0.18em] text-forest-600 uppercase">Frequent collaborators</h2>
+          <div class="mt-4 grid gap-2">{collaborators.map((m) => <MemberCard member={m} compact />)}</div>
+        </div>
+      </aside>
+    )}
+  </section>
+</Base>

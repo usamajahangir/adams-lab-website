@@ -1,0 +1,863 @@
+[
+  {
+    "id": "ahmed-qureshi",
+    "name": "Dr. Ahmed Qureshi",
+    "role": "Founder & Director",
+    "group": "director",
+    "status": "current",
+    "photo": "/images/team/ahmed-qureshi.jpg",
+    "email": "ajquresh@ualberta.ca",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [
+      "Ahmed Jawad Qureshi",
+      "Ahmed J. Qureshi",
+      "A. J. Qureshi",
+      "Ahmed Qureshi"
+    ],
+    "order": 0
+  },
+  {
+    "id": "daniella-sanchez",
+    "name": "Daniella Sanchez",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "current",
+    "photo": "/images/team/daniella-sanchez.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [
+      "Daniela Elizabeth Sanchez",
+      "Daniela Sanchez"
+    ],
+    "order": 100
+  },
+  {
+    "id": "esraa-eissa",
+    "name": "Esraa Eissa",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "current",
+    "photo": "/images/team/esraa-eissa.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "javad-bolboli",
+    "name": "Javad Bolboli",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "current",
+    "photo": "/images/team/javad-bolboli.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "khulood-alqaydi",
+    "name": "Khulood Alqaydi",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "current",
+    "photo": "/images/team/khulood-alqaydi.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "muhammad-irfan",
+    "name": "Muhammad Irfan",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "current",
+    "photo": "/images/team/muhammad-irfan.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "sajid-ullah-butt",
+    "name": "Sajid Ullah Butt",
+    "role": "Research Associate",
+    "group": "staff",
+    "status": "current",
+    "photo": "/images/team/sajid-ullah-butt.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 5
+  },
+  {
+    "id": "minahil-tauqir",
+    "name": "Minahil Tauqir",
+    "role": "Robotics Engineer",
+    "group": "staff",
+    "status": "current",
+    "photo": "/images/team/minahil-tauqir.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 10
+  },
+  {
+    "id": "raghda-al-taei",
+    "name": "Raghda Al Taei",
+    "role": "Data Scientist",
+    "group": "staff",
+    "status": "current",
+    "photo": "/images/team/raghda-al-taei.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 20
+  },
+  {
+    "id": "hasan-ashraf",
+    "name": "Hasan Ashraf",
+    "role": "Data Scientist",
+    "group": "staff",
+    "status": "current",
+    "photo": "/images/team/hasan-ashraf.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 21
+  },
+  {
+    "id": "anahita-meraji",
+    "name": "Anahita",
+    "role": "Data Scientist",
+    "group": "staff",
+    "status": "current",
+    "photo": "/images/team/anahita-meraji.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [
+      "Anahita Meraji"
+    ],
+    "order": 22
+  },
+  {
+    "id": "shriyash-waghmare",
+    "name": "Shriyash Waghmare",
+    "role": "Data Scientist",
+    "group": "staff",
+    "status": "current",
+    "photo": "/images/team/shriyash-waghmare.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 23
+  },
+  {
+    "id": "mohammad-keshmiri",
+    "name": "Mohammad Keshmiri",
+    "role": "PhD Student",
+    "group": "phd",
+    "status": "current",
+    "photo": "/images/team/mohammad-keshmiri.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "amal-alqayedi",
+    "name": "Amal Alqayedi",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "current",
+    "photo": "/images/team/amal-alqayedi.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "muhammad-talha",
+    "name": "Muhammad Talha",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "current",
+    "photo": "/images/team/muhammad-talha.jpg",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "abdullah-mohiuddin",
+    "name": "Abdullah Mohiuddin",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "shirin-dehgahi",
+    "name": "Shirin Dehgahi",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "thomas-lehman",
+    "name": "Thomas Lehman",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "yun-fei-fu",
+    "name": "Yun-fei",
+    "role": "Postdoctoral Fellow",
+    "group": "postdoc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [
+      "Yun-Fei Fu",
+      "Yunfei Fu"
+    ],
+    "order": 100
+  },
+  {
+    "id": "ahmed-elsherbiny",
+    "name": "Ahmed Elsherbiny",
+    "role": "PhD Student",
+    "group": "phd",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [
+      "Ahmed El-Sherbiny"
+    ],
+    "order": 100
+  },
+  {
+    "id": "adam-lim",
+    "name": "Adam Lim",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "ali-mulhi",
+    "name": "Ali Mulhi",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "almas-sahar",
+    "name": "Almas Sahar",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "andrea-rodriguez",
+    "name": "Andrea Rodriguez",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [
+      "Andrea Rodríguez"
+    ],
+    "order": 100
+  },
+  {
+    "id": "anish-abraham-philip",
+    "name": "Anish Abraham Philip",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "braian-rivera",
+    "name": "Braian Rivera",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "faiza-zehra",
+    "name": "Faiza Zehra",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "michael-kwak",
+    "name": "Michael Kwak",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "piyush-arora",
+    "name": "Piyush Arora",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "shiyu-teng",
+    "name": "Shiyu Teng",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [
+      "S. Teng"
+    ],
+    "order": 100
+  },
+  {
+    "id": "shokoufeh-sardarian",
+    "name": "Shokoufeh Sardarian",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [
+      "S. Sardarian"
+    ],
+    "order": 100
+  },
+  {
+    "id": "yifan-li",
+    "name": "Yifan Li",
+    "role": "MSc Student",
+    "group": "msc",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "abdullah-hashmi",
+    "name": "Abdullah Hashmi",
+    "role": "Research Assistant",
+    "group": "ra",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "aron-gu",
+    "name": "Aron Gu",
+    "role": "Research Assistant",
+    "group": "ra",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "jasmine-wadhwa",
+    "name": "Jasmine Wadhwa",
+    "role": "Research Assistant",
+    "group": "ra",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "remy-samson",
+    "name": "Remy Samson",
+    "role": "Research Assistant",
+    "group": "ra",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "vinay-dogra",
+    "name": "Vinay Dogra",
+    "role": "Research Assistant",
+    "group": "ra",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "lianne-tuin",
+    "name": "Lianne Tuin",
+    "role": "Co-op Student",
+    "group": "intern",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "rayan-khalid",
+    "name": "Rayan Khalid",
+    "role": "Co-op Student",
+    "group": "intern",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  },
+  {
+    "id": "zaina-rauf",
+    "name": "Zaina Rauf",
+    "role": "Co-op Student",
+    "group": "intern",
+    "status": "alumni",
+    "photo": "",
+    "email": "",
+    "years": "",
+    "bio": "",
+    "interests": [],
+    "links": {
+      "scholar": "",
+      "linkedin": "",
+      "github": "",
+      "orcid": "",
+      "website": ""
+    },
+    "aliases": [],
+    "order": 100
+  }
+]

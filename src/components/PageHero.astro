@@ -1,0 +1,29 @@
+---
+interface Props { eyebrow?: string; title: string; lead?: string; image?: string }
+const { eyebrow, title, lead, image } = Astro.props;
+---
+
+<section class="grain relative isolate overflow-hidden bg-forest-950 text-white">
+  {image && (
+    <div class="absolute inset-y-0 right-0 -z-20 w-full lg:w-3/5">
+      <img src={image} alt="" class="size-full object-cover opacity-40 animate-slow-zoom" />
+      <div class="absolute inset-0 bg-gradient-to-r from-forest-950 via-forest-950/70 to-forest-950/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-forest-950/60"></div>
+    </div>
+  )}
+  <div class="bg-grid mask-fade absolute inset-0 -z-10"></div>
+  <div class="pointer-events-none absolute -top-40 -left-32 -z-10 size-[34rem] rounded-full bg-forest-600/40 blur-[120px]"></div>
+  <div class="pointer-events-none absolute -right-20 -bottom-48 -z-10 size-[28rem] rounded-full bg-amber-500/15 blur-[120px]"></div>
+
+  <div class="container-x relative pt-36 pb-16 sm:pt-44 sm:pb-24">
+    {eyebrow && (
+      <p class="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-[0.14em] text-amber-300 uppercase animate-fade-up">
+        <span class="size-1.5 rounded-full bg-amber-400 shadow-[0_0_10px_2px_rgba(234,178,28,0.7)]"></span>{eyebrow}
+      </p>
+    )}
+    <h1 class="mt-6 max-w-4xl text-4xl leading-[1.05] !text-white sm:text-6xl lg:text-7xl animate-fade-up [animation-delay:80ms]">{title}</h1>
+    {lead && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-forest-100/75 animate-fade-up [animation-delay:160ms]">{lead}</p>}
+    <slot />
+  </div>
+  <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+</section>

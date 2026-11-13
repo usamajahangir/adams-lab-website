@@ -1,0 +1,20 @@
+{
+  "name": "ADaMS Lab",
+  "fullName": "Additive Design and Manufacturing Systems Laboratory",
+  "tagline": "Innovate. Collaborate. Advance.",
+  "focus": "We work towards advancing engineering design and manufacturing process productivity through discovery, research, and development of next generation processes, systems, and materials for the industries of future.",
+  "contact": {
+    "heading": "Contact Us",
+    "lead": "To learn more, don’t hesitate to get in touch",
+    "labName": "ADaMS: Additive Design and Manufacturing Systems Laboratory",
+    "university": "University of Alberta",
+    "building": "Donadeo Innovation Centre for Engineering",
+    "address": "9211 116 St NW, Edmonton, AB T6G 1H9",
+    "email": "ajquresh@ualberta.ca",
+    "mapUrl": "https://maps.google.com/?q=Donadeo+Innovation+Centre+for+Engineering+Edmonton",
+    "note": "[Placeholder] Note for prospective students / collaborators goes here."
+  },
+  "features": {
+    "projects": false
+  }
+}

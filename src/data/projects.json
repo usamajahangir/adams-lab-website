@@ -1,0 +1,64 @@
+[
+  {
+    "id": "placeholder-project-a",
+    "title": "[Placeholder] Project A",
+    "summary": "[Placeholder] One or two sentences describing the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "description": [
+      "[Placeholder] Full project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    ],
+    "image": "/images/research/metal-am-3.jpg",
+    "area": "metal-am",
+    "members": [
+      "ahmed-qureshi",
+      "mohammad-keshmiri",
+      "sajid-ullah-butt"
+    ],
+    "status": "active",
+    "featured": true,
+    "tags": [
+      "[Placeholder] Tag",
+      "Tag 2"
+    ]
+  },
+  {
+    "id": "placeholder-project-b",
+    "title": "[Placeholder] Project B",
+    "summary": "[Placeholder] One or two sentences describing the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "description": [
+      "[Placeholder] Full project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "image": "/images/research/composite-hybrid-1.jpg",
+    "area": "composite-hybrid",
+    "members": [
+      "ahmed-qureshi",
+      "minahil-tauqir",
+      "sajid-ullah-butt"
+    ],
+    "status": "active",
+    "featured": true,
+    "tags": [
+      "[Placeholder] Tag",
+      "Tag 2"
+    ]
+  },
+  {
+    "id": "placeholder-project-c",
+    "title": "[Placeholder] Project C",
+    "summary": "[Placeholder] One or two sentences describing the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "description": [
+      "[Placeholder] Full project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ],
+    "image": "/images/research/pta-1.jpg",
+    "area": "pta",
+    "members": [
+      "ahmed-qureshi",
+      "javad-bolboli"
+    ],
+    "status": "completed",
+    "featured": true,
+    "tags": [
+      "[Placeholder] Tag"
+    ]
+  }
+]

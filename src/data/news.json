@@ -1,0 +1,38 @@
+[
+  {
+    "id": "placeholder-news",
+    "title": "[Placeholder] News headline goes here",
+    "kind": "news",
+    "date": "2026-11-01",
+    "endDate": "",
+    "dateLabel": "",
+    "summary": "[Placeholder] One or two sentences about the news — an award, a paper, a visit, a new grant.",
+    "location": "",
+    "link": "",
+    "image": "/images/gallery/g02.jpg"
+  },
+  {
+    "id": "2026-cirp-cat",
+    "title": "CIRP CAT 2026",
+    "kind": "event",
+    "date": "2026-06-15",
+    "endDate": "2026-06-17",
+    "dateLabel": "June 15th – 17th 2026",
+    "summary": "",
+    "location": "",
+    "link": "https://www.cirpcat2026.ca",
+    "image": "/images/site/events.jpg"
+  },
+  {
+    "id": "2025-pamm",
+    "title": "PAMM 2025",
+    "kind": "event",
+    "date": "2025-07-31",
+    "endDate": "2025-08-01",
+    "dateLabel": "July 31st – Aug 1st 2025",
+    "summary": "",
+    "location": "",
+    "link": "https://www.pamm2025.ca",
+    "image": "/images/site/campus.jpg"
+  }
+]

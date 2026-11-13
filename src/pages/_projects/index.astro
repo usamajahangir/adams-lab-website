@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { getProjects } from '@/lib/content';
+import { PH } from '@/site';
+
+const projects = await getProjects();
+const research = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title="Projects" description="Research projects at the ADaMS Lab.">
+  <PageHero eyebrow="Projects" title="Projects" lead={PH.lead} image="/images/research/composite-hybrid-2.jpg" />
+
+  <section class="container-x py-14 sm:py-20">
+    <div class="flex flex-wrap gap-2" role="group" aria-label="Filter by research area" id="project-filters">
+      <button type="button" data-filter="all" class="filter-btn is-active">All <span class="opacity-60">({projects.length})</span></button>
+      {research.map((r) => {
+        const n = projects.filter((p) => p.data.area.id === r.id).length;
+        return n > 0 && <button type="button" data-filter={r.id} class="filter-btn">{r.data.short} <span class="opacity-60">({n})</span></button>;
+      })}
+    </div>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="project-grid">
+      {projects.map((p) => <ProjectCard project={p} />)}
+    </div>
+  </section>
+</Base>
+
+<style>
+  @reference '../../styles/global.css';
+  .filter-btn { @apply rounded-full border border-line bg-white px-4 py-2 text-sm font-medium text-forest-800 transition hover:border-forest-400; }
+  .filter-btn.is-active { @apply border-forest-700 bg-forest-700 text-white; }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#project-filters [data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('#project-grid [data-area]');
+  buttons.forEach((b) => b.addEventListener('click', () => {
+    const f = b.dataset.filter;
+    buttons.forEach((x) => x.classList.toggle('is-active', x === b));
+    cards.forEach((c) => { c.hidden = f !== 'all' && c.dataset.area !== f; });
+  }));
+</script>
